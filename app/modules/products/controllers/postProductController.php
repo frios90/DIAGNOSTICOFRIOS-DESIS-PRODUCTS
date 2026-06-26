@@ -2,7 +2,7 @@
 
 require_once '../repositories/ProductRepository.php';
 require_once '../middlewares/validateFieldsAndMaterialsMiddleware.php';
-require_once '../middlewares/storeMiddleware.php';
+require_once '../middlewares/validateFieldsDatabaseMiddleware.php';
 
 header('Content-Type: application/json');
 
@@ -18,13 +18,17 @@ if (!$validation['valid']) {
     return;
 }
 
+$validation_fields_db = validateFieldsDatabaseMiddleware($_POST);
+if (!$validation_fields_db['valid']) {
+    echo json_encode(['success' => false, 'message' => $validation_fields_db['message']]);
+    return;
+}
+
 $product_repository = new ProductRepository();
 
 try {
-    $pdo->beginTransaction();
     $product_id = $product_repository->createProduct($_POST);
     $product_repository->createProductMaterial($product_id, $validation['materials']);
-    $pdo->commit();
     echo json_encode(['success' => true, 'message' => 'Producto creado correctamente']);
 } catch (PDOException $e) {
     $pdo->rollBack();

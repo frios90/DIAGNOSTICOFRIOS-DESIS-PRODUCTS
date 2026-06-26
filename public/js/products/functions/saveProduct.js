@@ -18,7 +18,7 @@ export const saveProduct = () => {
 
     showMessage('Guardando...', 'info');
 
-    const end_point = 'ajax/products/controllers/postProductController.php';
+    const end_point = 'app/modules/products/controllers/postProductController.php';
     fetch(end_point, {method: 'POST', body: formData})
     .then(response => response.json())
     .then(data => {

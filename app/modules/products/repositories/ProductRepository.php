@@ -11,6 +11,13 @@ class ProductRepository
         $this->pdo = $db->getConnection();
     }
 
+    public function findByCode($code)
+    {
+        $stmt = $this->pdo->prepare("SELECT id FROM products WHERE code = ?");
+        $stmt->execute([$code]);
+        return $stmt->fetch();;
+    }
+
     public function createProduct($data)
     {
         $sql = "INSERT INTO products (code, name, warehouse_id, branch_id, currency_id, price, description) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -32,9 +39,7 @@ class ProductRepository
         $sql = "INSERT INTO product_material (product_id, material_id) VALUES (?, ?)";
         $stmt = $this->pdo->prepare($sql);
         foreach ($materials as $material_id) {
-            if (validateMaterialExists($this->pdo, $material_id)) {
-                $stmt->execute([$product_id, $material_id]);
-            }
+            $stmt->execute([$product_id, $material_id]);
         }
     }
 

@@ -1,5 +1,4 @@
 <?php
-require_once '../../../config/dbConnection.php';
 
 /**
  * Validación server-side para que todos los campos esten completos
