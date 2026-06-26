@@ -6,8 +6,8 @@ require_once '../../../config/DatabaseConnection.php';
 
 class BranchRepository
 {
-    private $pdo;
-    private const TABLE = "branches";
+    private \PDO $pdo;
+    private const string TABLE = "branches";
 
     public function __construct()
     {

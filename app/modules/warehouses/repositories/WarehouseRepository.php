@@ -6,8 +6,8 @@ require_once '../../../config/DatabaseConnection.php';
 
 class WarehouseRepository
 {
-    private $pdo;
-    private const TABLE = "warehouses";
+    private \PDO $pdo;
+    private const string TABLE = "warehouses";
 
     public function __construct()
     {

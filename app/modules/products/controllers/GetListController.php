@@ -7,6 +7,7 @@ require_once '../repositories/ProductRepository.php';
 class GetListController
 {
     private ProductRepository $repository;
+
     public function __construct()
     {
         $this->repository = new ProductRepository();

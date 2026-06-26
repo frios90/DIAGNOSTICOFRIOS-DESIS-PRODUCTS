@@ -7,6 +7,7 @@ require_once '../repositories/CurrencyRepository.php';
 class GetListController
 {
     private CurrencyRepository $repository;
+
     public function __construct()
     {
         $this->repository = new CurrencyRepository();

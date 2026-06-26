@@ -6,8 +6,8 @@ require_once '../../../config/DatabaseConnection.php';
 
 class CurrencyRepository
 {
-    private $pdo;
-    private const TABLE = "currencies";
+    private \PDO $pdo;
+    private const string TABLE = "currencies";
 
     public function __construct()
     {

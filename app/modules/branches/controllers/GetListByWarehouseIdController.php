@@ -7,6 +7,7 @@ require_once '../repositories/BranchRepository.php';
 class GetListByWarehouseIdController
 {
     private BranchRepository $repository;
+
     public function __construct()
     {
         $this->repository = new BranchRepository();

@@ -6,8 +6,8 @@ require_once '../../../config/DatabaseConnection.php';
 
 class MaterialRepository
 {
-    private $pdo;
-    private const TABLE = "materials";
+    private \PDO $pdo;
+    private const string TABLE = "materials";
 
     public function __construct()
     {

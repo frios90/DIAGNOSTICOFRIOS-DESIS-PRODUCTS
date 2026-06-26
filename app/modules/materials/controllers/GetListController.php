@@ -7,6 +7,7 @@ require_once '../repositories/MaterialRepository.php';
 class GetListController
 {
     private MaterialRepository $repository;
+
     public function __construct()
     {
         $this->repository = new MaterialRepository();

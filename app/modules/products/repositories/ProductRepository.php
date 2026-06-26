@@ -6,7 +6,8 @@ require_once '../../../config/DatabaseConnection.php';
 
 class ProductRepository
 {
-    private $pdo;
+    private \PDO $pdo;
+    private const string TABLE = "products";
 
     public function __construct()
     {
@@ -16,14 +17,14 @@ class ProductRepository
 
     public function findByCode($code): array|false
     {
-        $stmt = $this->pdo->prepare("SELECT id FROM products WHERE code = ?");
+        $stmt = $this->pdo->prepare("SELECT id FROM ". self::TABLE ." WHERE code = ?");
         $stmt->execute([$code]);
         return $stmt->fetch();;
     }
 
     public function createProduct($data) : int|string
     {
-        $sql = "INSERT INTO products (code, name, warehouse_id, branch_id, currency_id, price, description) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO ". self::TABLE ." (code, name, warehouse_id, branch_id, currency_id, price, description) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             $data['code'],
@@ -61,7 +62,7 @@ class ProductRepository
                 c.name as currency,
                 c.symbol as currency_symbol,
                 COALESCE(string_agg(m.name, ', ' ORDER BY m.name), 'No materials') as materials
-            FROM products p
+            FROM ". self::TABLE ." p
             LEFT JOIN warehouses w ON p.warehouse_id = w.id
             LEFT JOIN branches b ON p.branch_id = b.id
             LEFT JOIN currencies c ON p.currency_id = c.id
