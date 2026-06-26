@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Prueba de Diagnostico Francisco Rios</title>
-    <link rel="stylesheet" href="css/form.css">
-    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="public/css/form.css">
+    <link rel="stylesheet" href="public/css/table.css">
 </head>
 <body>
 <div class="container">
@@ -91,6 +91,6 @@
         </table>
     </div>
 </div>
-    <script type="module" src="js/app.js"></script>
+    <script type="module" src="public/js/app.js"></script>
 </body>
 </html>

@@ -52,10 +52,10 @@ Fecha: Junio 2026
     3.3. Cargar estructura y datos
 
         # Cargar esquema de tablas
-            # psql -h localhost -U diagnostico_usr -d diagnostico -f sql/schema.sql
+            # psql -h localhost -U diagnostico_usr -d diagnostico -f sql/01-schema.sql
 
         # Cargar datos de ejemplo
-            # psql -h localhost -U diagnostico_usr -d diagnostico -f sql/datos.sql
+            # psql -h localhost -U diagnostico_usr -d diagnostico -f sql/02-data.sql
 
     3.4. Configurar conexión
 
