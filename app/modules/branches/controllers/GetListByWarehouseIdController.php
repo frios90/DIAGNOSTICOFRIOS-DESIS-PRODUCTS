@@ -2,7 +2,7 @@
 
 require_once '../repositories/BranchRepository.php';
 
-class GetListController
+class GetListByWarehouseIdController
 {
     private BranchRepository $repository;
     public function __construct()
@@ -26,5 +26,5 @@ class GetListController
     }
 }
 
-$ajax = new GetListController();
+$ajax = new GetListByWarehouseIdController();
 $ajax->getBranches();
