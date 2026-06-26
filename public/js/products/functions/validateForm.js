@@ -24,16 +24,6 @@ export const validateForm = () => {
         return false;
     }
 
-    const price = document.getElementById('price').value.trim();
-    if (price === '') {
-        alert('El precio del producto no puede estar en blanco.');
-        return false;
-    }
-    if (!/^\d+(\.\d{1,2})?$/.test(price) || parseFloat(price) <= 0) {
-        alert('El precio del producto debe ser un número positivo con hasta dos decimales.');
-        return false;
-    }
-
     if (document.getElementById('warehouse').value === '') {
         alert('Debe seleccionar una bodega.');
         return false;
@@ -46,6 +36,16 @@ export const validateForm = () => {
 
     if (document.getElementById('currency').value === '') {
         alert('Debe seleccionar una moneda para el producto.');
+        return false;
+    }
+
+    const price = document.getElementById('price').value.trim();
+    if (price === '') {
+        alert('El precio del producto no puede estar en blanco.');
+        return false;
+    }
+    if (!/^\d+(\.\d{1,2})?$/.test(price) || parseFloat(price) <= 0) {
+        alert('El precio del producto debe ser un número positivo con hasta dos decimales.');
         return false;
     }
 
