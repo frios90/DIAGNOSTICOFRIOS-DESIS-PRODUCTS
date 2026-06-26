@@ -59,14 +59,14 @@ class StoreMiddleware
     {
         if (!isset($materials) || !is_array($materials)) return ['valid' => false, 'message' => 'Seleccione al menos dos materiales'];
         $clean_materials = array_unique(array_filter($materials));
-        if (count($clean_materials) < 2) return ['valid' => false, 'message' => 'Seleccione al menos dos materiales diferentes'];
+        if (count($clean_materials) < 2) return ['valid' => false, 'message' => 'Debe seleccionar al menos dos materiales para el producto'];
         return ['valid' => true, 'materials' => $clean_materials];
     }
 
     private function validateUniqueCode(string $code): array
     {
         $existing = $this->productRepository->findByCode($code);
-        if ($existing) return ['valid' => false, 'message' => 'Ya existe un producto con el código ' . $code];
+        if ($existing) return ['valid' => false, 'message' => 'El código del producto ya está registrado'];
         return ['valid' => true];
     }
 
