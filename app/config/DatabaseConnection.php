@@ -2,13 +2,14 @@
 
 class DatabaseConnection
 {
-    private static $instance = null;
-    private $pdo;
-    private $host = 'localhost'; /** Cambiar a db si se usa con docker */
-    private $port = '5432';
-    private $database_name = 'diagnostico';
-    private $db_username = 'diagnostico_usr';
-    private $db_password = '1234';
+    private static ?self $instance = null;
+    private \PDO $pdo;
+    private string $host = 'localhost';
+    // private string $host = 'db'; /** Cambiar a db si se usa con docker */
+    private string $port = '5432';
+    private string $database_name = 'diagnostico';
+    private string $db_username = 'diagnostico_usr';
+    private string $db_password = '1234';
 
     private function __construct() {
         try {
@@ -23,14 +24,16 @@ class DatabaseConnection
         }
     }
 
-    public static function getInstance() {
+    public static function getInstance() :self
+    {
         if (self::$instance === null) {
             self::$instance = new self();
         }
         return self::$instance;
     }
 
-    public function getConnection() {
+    public function getConnection() :\PDO
+    {
         return $this->pdo;
     }
 }
