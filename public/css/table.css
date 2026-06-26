@@ -10,13 +10,6 @@
     padding-top: 20px;
 }
 
-.table-container h2 {
-    display: inline-block;
-    margin-right: 20px;
-    font-size: 24px;
-    color: #333;
-}
-
 #productsTable {
     width: 100%;
     border-collapse: collapse;
@@ -61,29 +54,7 @@
     color: #1aab8a;
 }
 
-.material-tags {
-    display: inline-block;
-    background-color: #e9ecef;
-    padding: 4px 10px;
-    border-radius: 12px;
-    color: #495057;
-    max-width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 12px;
-}
-
-
 #productTable {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-}
-
-#productsTable tbody tr:nth-child(even) {
-    background-color: #f8f9fa;
-}
-
-#productsTable tbody tr:nth-child(even):hover {
-    background-color: #e9ecef;
 }

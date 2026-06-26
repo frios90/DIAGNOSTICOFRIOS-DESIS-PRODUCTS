@@ -1,10 +1,11 @@
 <?php
+
 class DatabaseConnection
 {
     private static $instance = null;
     private $pdo;
 
-    private $host = 'localhost';
+    private $host = 'localhost'; /** Cambiar a db si se usa con docker */
     private $port = '5432';
     private $database_name = 'diagnostico';
     private $db_username = 'diagnostico_usr';

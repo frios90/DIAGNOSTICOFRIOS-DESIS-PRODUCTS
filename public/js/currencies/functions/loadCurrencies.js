@@ -11,7 +11,7 @@ export const loadCurrencies = () => {
             const select = document.getElementById('currency');
             select.innerHTML = '<option value="">Seleccione Moneda</option>';
             data.forEach(item => {
-                select.innerHTML += `<option value="${item.id}">${item.name} (${item.symbol})</option>`;
+                select.innerHTML += `<option value="${item.id}">${item.name}</option>`;
             });
         })
         .catch(error => console.error('Error:', error));

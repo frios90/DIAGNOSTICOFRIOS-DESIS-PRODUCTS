@@ -14,26 +14,24 @@
     <form id="productForm">
         <div class="row">
             <div class="col">
-                <label>Código del Producto *</label>
+                <label>Código</label>
                 <input type="text" name="code" id="code" maxlength="15" placeholder="Ej: PROD001">
-                <small>Mínimo 5 caracteres, letras y números</small>
             </div>
             <div class="col">
-                <label>Nombre del Producto *</label>
+                <label>Nombre</label>
                 <input type="text" name="name" id="name" maxlength="50" placeholder="Ingrese el nombre">
-                <small>Entre 2 y 50 caracteres</small>
             </div>
         </div>
 
         <div class="row">
             <div class="col">
-                <label>Bodega *</label>
+                <label>Bodega</label>
                 <select name="warehouse" id="warehouse">
                     <option value="">Seleccione Bodega</option>
                 </select>
             </div>
             <div class="col">
-                <label>Sucursal *</label>
+                <label>Sucursal</label>
                 <select name="branch" id="branch">
                     <option value="">Seleccione Sucursal</option>
                 </select>
@@ -42,27 +40,25 @@
 
         <div class="row">
             <div class="col">
-                <label>Moneda *</label>
+                <label>Moneda</label>
                 <select name="currency" id="currency">
                     <option value="">Seleccione Moneda</option>
                 </select>
             </div>
             <div class="col">
-                <label>Precio *</label>
+                <label>Precio</label>
                 <input type="text" name="price" id="price" placeholder="0.00">
-                <small>Número positivo con hasta 2 decimales</small>
             </div>
         </div>
 
         <div class="col">
-            <label>Material del Producto * (Seleccione al menos 2)</label>
+            <label>Material del Producto</label>
             <div class="checkbox-group" id="materialsContainer"></div>
         </div>
 
         <div class="col" style="margin-top:15px;">
-            <label>Descripción del Producto *</label>
-            <textarea name="description" id="description" rows="4" placeholder="Ingrese la descripción"></textarea>
-            <small>Entre 10 y 1000 caracteres</small>
+            <label>Descripción</label>
+            <textarea name="description" id="description" rows="3" placeholder="Ingrese la descripción"></textarea>
         </div>
         <button class="btn" type="submit">Guardar Producto</button>
     </form>

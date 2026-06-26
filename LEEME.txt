@@ -97,45 +97,72 @@ Fecha: Junio 2026
 4. ESTRUCTURA DE ARCHIVOS
 ====================================================================================================
 
-    /
-    ├── index.php                           # Punto de entrada - Formulario principal
+    PruebaDiagnosticoFrios/
+    ├── app/
+    │   ├── config/
+    │   │   └── DatabaseConnection.php
+    │   │
+    │   └── modules/
+    │       ├── branches/
+    │       │   ├── controllers/
+    │       │   │   └── getListController.php
+    │       │   └── repositories/
+    │       │       └── BranchRepository.php
+    │       │
+    │       ├── currencies/
+    │       │   ├── controllers/
+    │       │   │   └── getListController.php
+    │       │   └── repositories/
+    │       │       └── CurrencyRepository.php
+    │       │
+    │       ├── materials/
+    │       │   ├── controllers/
+    │       │   │   └── getListController.php
+    │       │   └── repositories/
+    │       │       └── MaterialRepository.php
+    │       │
+    │       ├── products/
+    │       │   ├── controllers/
+    │       │   │   ├── getListController.php
+    │       │   │   └── postProductController.php
+    │       │   ├── middlewares/
+    │       │   │   ├── validateFieldsAndMaterialsMiddleware.php
+    │       │   │   └── validateFieldsDatabaseMiddleware.php
+    │       │   └── repositories/
+    │       │       └── ProductRepository.php
+    │       │
+    │       └── warehouses/
+    │           ├── controllers/
+    │           │   └── getListController.php
+    │           └── repositories/
+    │               └── WarehouseRepository.php
     │
-    ├── config/
-    │   └── dbConnection.php                # Configuración y conexión a PostgreSQL
-    │
-    ├── css/
-    │   ├── form.css                        # Estilos del formulario
-    │   └── table.css                       # Estilos de la tabla de productos
-    │
-    ├── js/
-    │   ├── app.js                          # Punto de entrada JavaScript (ES Module)
-    │   └── products/
-    │       ├── index.js                    # Orquestador del módulo productos
-    │       └── functions/
-    │           ├── loadWarehouses.js       # Carga bodegas desde BD
-    │           ├── loadBranches.js         # Carga sucursales por bodega
-    │           ├── loadCurrencies.js       # Carga monedas desde BD
-    │           ├── loadMaterials.js        # Carga materiales
-    │           ├── loadProducts.js         # Carga tabla de productos
-    │           ├── validateForm.js         # Validación del formulario
-    │           ├── saveProduct.js          # Guardar producto vía AJAX
-    │           └── showMessage.js          # Helper para mensajes
-    │
-    ├── ajax/
-    |    └── products/
-    │           ├── getInitData.php         # Helper para la carga de entidades inciales que llenan los combo-box
-    │           ├── storeProduct.php        # Ajax principal para la creación de productos
-    │           ├── getProductList.php      # ajax del módulo de productos para obtener el listado. Adicional para poder comprobar sobre la vista
-    │           └── middlewares/
-    │               └── storeMiddleware.php # Middleware base para validar el formulario según las reglas de negocio
+    ├── public/
+    │   ├── css/
+    │   │   ├── form.css
+    │   │   └── table.css
+    │   └── js/
+    │       ├── app.js
+    │       └── products/
+    │           ├── index.js
+    │           └── functions/
+    │               ├── loadWarehouses.js
+    │               ├── loadBranches.js
+    │               ├── loadCurrencies.js
+    │               ├── loadMaterials.js
+    │               ├── loadProducts.js
+    │               ├── validateForm.js
+    │               ├── saveProduct.js
+    │               └── showMessage.js
     │
     ├── sql/
-    │   ├── 01-schema.sql                     # Definición de la base de datos mediante este script
-    │   └── 02-data.sql                       # Contenido dummy para las tables
+    │   ├── 01-schema.sql
+    │   └── 02-data.sql
     │
-    └── LEEME.txt                             # Este archivo
-    └── Dokerfile                             # Para levantar con docker
-    └── docker-compose.yml                    # para levantar con docker
+    ├── index.php
+    ├── Dockerfile
+    ├── docker-compose.yml
+    └── LEEME.txt
 
 
 5. ESTRUCTURA DE BASE DE DATOS
