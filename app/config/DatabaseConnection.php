@@ -4,7 +4,6 @@ class DatabaseConnection
 {
     private static $instance = null;
     private $pdo;
-
     private $host = 'localhost'; /** Cambiar a db si se usa con docker */
     private $port = '5432';
     private $database_name = 'diagnostico';
@@ -33,12 +32,6 @@ class DatabaseConnection
 
     public function getConnection() {
         return $this->pdo;
-    }
-
-    public function setHost($host) {
-        $this->host = $host;
-        self::$instance = null;
-        return self::getInstance();
     }
 }
 ?>

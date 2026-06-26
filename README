@@ -2,6 +2,18 @@
 SISTEMA DE REGISTRO DE PRODUCTOS
 Prueba de Diagnóstico - Francisco Rios
 Fecha: Junio 2026
+
+DESCRIPCIÓN DEL PROYECTO
+
+Sistema de Registro de Productos desarrollado como prueba de diagnóstico. Permite gestionar productos mediante un formulario con validaciones en tiempo real, almacenando los datos en PostgreSQL.
+
+Objetivo: Demostrar habilidades en desarrollo web con tecnologías nativas (Vanilla JS, PHP, PostgreSQL) aplicando buenas prácticas y arquitectura modular sin frameworks externos.
+
+Arquitectura:
+
+    Backend: Controller → Middleware → Repository → Database. Estructura simple pero escalable, abstrayendo la lógica en capas sin sobrediseñar dada la naturaleza del proyecto.
+
+    Frontend: Modular por entidad (warehouses, branches, currencies, materials, products) con JavaScript ES Modules, separando responsabilidades por funcionalidad.
 ====================================================================================================
 
 1. TECNOLOGÍAS UTILIZADAS
