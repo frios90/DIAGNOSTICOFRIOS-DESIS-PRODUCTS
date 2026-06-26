@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 require_once '../../../config/DatabaseConnection.php';
 
 class ProductRepository
@@ -11,14 +14,14 @@ class ProductRepository
         $this->pdo = $db->getConnection();
     }
 
-    public function findByCode($code)
+    public function findByCode($code): array|false
     {
         $stmt = $this->pdo->prepare("SELECT id FROM products WHERE code = ?");
         $stmt->execute([$code]);
         return $stmt->fetch();;
     }
 
-    public function createProduct($data)
+    public function createProduct($data) : int|string
     {
         $sql = "INSERT INTO products (code, name, warehouse_id, branch_id, currency_id, price, description) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
@@ -34,7 +37,7 @@ class ProductRepository
         return $this->pdo->lastInsertId();
     }
 
-    public function createProductMaterial($product_id, $materials)
+    public function createProductMaterial($product_id, $materials) : void
     {
         $sql = "INSERT INTO product_material (product_id, material_id) VALUES (?, ?)";
         $stmt = $this->pdo->prepare($sql);
@@ -43,7 +46,7 @@ class ProductRepository
         }
     }
 
-    public function getList()
+    public function getList() :string
     {
         $sql = "
             SELECT

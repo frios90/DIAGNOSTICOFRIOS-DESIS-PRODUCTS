@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 require_once '../../../config/DatabaseConnection.php';
 
 class MaterialRepository
@@ -12,14 +15,14 @@ class MaterialRepository
         $this->pdo = $db->getConnection();
     }
 
-    public function getList()
+    public function getList() :string
     {
         $sql = "SELECT id, name FROM ". self::TABLE ." ORDER BY name";
         $stmt = $this->pdo->query($sql);
         return json_encode($stmt->fetchAll());
     }
 
-    public function findById($id)
+    public function findById($id) : array|false
     {
         $stmt = $this->pdo->prepare("SELECT id FROM ". self::TABLE ." WHERE id = ?");
         $stmt->execute([$id]);
