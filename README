@@ -11,11 +11,17 @@ Permite gestionar productos mediante un formulario con validaciones en tiempo re
 Objetivo: Demostrar habilidades en desarrollo web con tecnologías nativas (Vanilla JS, PHP, PostgreSQL)
 aplicando buenas prácticas y arquitectura modular sin frameworks externos.
 
+
+
 Arquitectura:
 
     Backend: Controller → Middleware → Repository → Database. Estructura simple pero escalable, abstrayendo la lógica en capas sin sobrediseñar dada la naturaleza del proyecto.
 
     Frontend: Modular por entidad (warehouses, branches, currencies, materials, products) con JavaScript ES Modules, separando responsabilidades por funcionalidad.
+
+    El sistema cuenta con validación de campos tanto en el front como en el back.
+
+
 ====================================================================================================
 
 1. TECNOLOGÍAS UTILIZADAS
