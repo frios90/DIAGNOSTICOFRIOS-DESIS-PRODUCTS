@@ -9,8 +9,6 @@
 <body>
 <div class="container">
     <h1>Formulario de Producto</h1>
-    <div id="message" class="message" style="display:none;"></div>
-
     <form id="productForm">
         <div class="row">
             <div class="col">

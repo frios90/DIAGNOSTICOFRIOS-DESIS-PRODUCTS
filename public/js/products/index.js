@@ -6,14 +6,14 @@
 */
 import { loadProducts } from './functions/loadProducts.js';
 import { validateForm } from './functions/validateForm.js';
-import { saveProduct } from './functions/saveProduct.js';
+import { postProduct } from './functions/postProduct.js';
 
 export const appProducts = () => {
     loadProducts();
     document.getElementById('productForm').addEventListener('submit', function(e) {
         e.preventDefault();
         if (validateForm()) {
-            saveProduct();
+            postProduct();
         }
     });
 }

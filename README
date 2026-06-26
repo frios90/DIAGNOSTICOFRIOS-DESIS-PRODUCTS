@@ -174,7 +174,7 @@ Arquitectura:
     │       │   ├── index.js
     │       │   └── functions/
     │       │       ├── loadProducts.js
-    │       │       ├── saveProduct.js
+    │       │       ├── postProduct.js
     │       │       ├── showMessage.js
     │       │       └── validateForm.js
     │       └── warehouses/
