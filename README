@@ -120,35 +120,34 @@ Arquitectura:
     │   └── modules/
     │       ├── branches/
     │       │   ├── controllers/
-    │       │   │   └── getListController.php
+    │       │   │   └── GetListController.php
     │       │   └── repositories/
     │       │       └── BranchRepository.php
     │       │
     │       ├── currencies/
     │       │   ├── controllers/
-    │       │   │   └── getListController.php
+    │       │   │   └── GetListController.php
     │       │   └── repositories/
     │       │       └── CurrencyRepository.php
     │       │
     │       ├── materials/
     │       │   ├── controllers/
-    │       │   │   └── getListController.php
+    │       │   │   └── GetListController.php
     │       │   └── repositories/
     │       │       └── MaterialRepository.php
     │       │
     │       ├── products/
     │       │   ├── controllers/
-    │       │   │   ├── getListController.php
-    │       │   │   └── postProductController.php
+    │       │   │   ├── GetListController.php
+    │       │   │   └── PostProductController.php
     │       │   ├── middlewares/
-    │       │   │   ├── validateFieldsAndMaterialsMiddleware.php
-    │       │   │   └── validateFieldsDatabaseMiddleware.php
+    │       │   │   └── StoreMiddleware.php
     │       │   └── repositories/
     │       │       └── ProductRepository.php
     │       │
     │       └── warehouses/
     │           ├── controllers/
-    │           │   └── getListController.php
+    │           │   └── GetListController.php
     │           └── repositories/
     │               └── WarehouseRepository.php
     │
