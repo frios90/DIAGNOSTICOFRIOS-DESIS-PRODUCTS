@@ -5,9 +5,11 @@ Fecha: Junio 2026
 
 DESCRIPCIÓN DEL PROYECTO
 
-Sistema de Registro de Productos desarrollado como prueba de diagnóstico. Permite gestionar productos mediante un formulario con validaciones en tiempo real, almacenando los datos en PostgreSQL.
+Sistema de Registro de Productos desarrollado como prueba de diagnóstico.
+Permite gestionar productos mediante un formulario con validaciones en tiempo real, almacenando los datos en PostgreSQL.
 
-Objetivo: Demostrar habilidades en desarrollo web con tecnologías nativas (Vanilla JS, PHP, PostgreSQL) aplicando buenas prácticas y arquitectura modular sin frameworks externos.
+Objetivo: Demostrar habilidades en desarrollo web con tecnologías nativas (Vanilla JS, PHP, PostgreSQL)
+aplicando buenas prácticas y arquitectura modular sin frameworks externos.
 
 Arquitectura:
 
@@ -84,6 +86,7 @@ Arquitectura:
     2.5 Levantar el proyecto (Entorno Local)
 
         # php -S localhost:8000
+            # Cambiar el número del puerto de ser necesario: php -S localhost:8800
 
         # Acceder en el navegador
             http://localhost:8000

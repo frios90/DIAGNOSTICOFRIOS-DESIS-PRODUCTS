@@ -4,7 +4,7 @@
  *
 */
 export const loadCurrencies = () => {
-    const end_point = `app/modules/currencies/controllers/getListController.php`;
+    const end_point = `app/modules/currencies/controllers/GetListController.php`;
     fetch(end_point)
         .then(response => response.json())
         .then(data => {

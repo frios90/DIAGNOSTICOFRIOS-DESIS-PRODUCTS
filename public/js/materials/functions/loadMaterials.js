@@ -4,7 +4,7 @@
  *
 */
 export const loadMaterials = () => {
-    const end_point = `app/modules/materials/controllers/getListController.php`;
+    const end_point = `app/modules/materials/controllers/GetListController.php`;
     fetch(end_point)
         .then(response => response.json())
         .then(data => {

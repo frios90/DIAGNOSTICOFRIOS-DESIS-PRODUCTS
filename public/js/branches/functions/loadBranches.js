@@ -8,7 +8,7 @@ export const loadBranches = (warehouse_id) => {
         document.getElementById('branch').innerHTML = '<option value="">Seleccione Sucursal</option>';
         return;
     }
-    const end_point = `app/modules/branches/controllers/getListController.php?warehouse_id=${warehouse_id}`;
+    const end_point = `app/modules/branches/controllers/GetListController.php?warehouse_id=${warehouse_id}`;
     fetch(end_point)
         .then(response => response.json())
         .then(data => {
