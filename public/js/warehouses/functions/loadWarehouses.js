@@ -4,7 +4,7 @@
  *
 */
 export const loadWarehouses = () => {
-    const end_point = `app/modules/warehouses/controllers/getListController.php`;
+    const end_point = `app/modules/warehouses/controllers/GetListController.php`;
     fetch(end_point)
         .then(response => response.json())
         .then(data => {
