@@ -4,7 +4,8 @@
  *
 */
 export const loadWarehouses = () => {
-    fetch('ajax/products/getInitData.php?action=getWarehouses')
+    const end_point = `ajax/warehouses/getList.php`;
+    fetch(end_point)
         .then(response => response.json())
         .then(data => {
             const select = document.getElementById('warehouse');

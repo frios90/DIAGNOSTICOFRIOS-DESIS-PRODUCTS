@@ -8,7 +8,8 @@ export const loadBranches = (warehouse_id) => {
         document.getElementById('branch').innerHTML = '<option value="">Seleccione Sucursal</option>';
         return;
     }
-    fetch(`ajax/products/getInitData.php?action=getBranches&warehouse_id=${warehouse_id}`)
+    const end_point = `ajax/branches/getList.php?warehouse_id=${warehouse_id}`;
+    fetch(end_point)
         .then(response => response.json())
         .then(data => {
             const select = document.getElementById('branch');

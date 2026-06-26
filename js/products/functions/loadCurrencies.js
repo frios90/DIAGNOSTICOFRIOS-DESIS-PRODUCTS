@@ -4,7 +4,8 @@
  *
 */
 export const loadCurrencies = () => {
-    fetch('ajax/products/getInitData.php?action=getCurrencies')
+    const end_point = `ajax/currencies/getList.php`;
+    fetch(end_point)
         .then(response => response.json())
         .then(data => {
             const select = document.getElementById('currency');

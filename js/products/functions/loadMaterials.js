@@ -4,7 +4,8 @@
  *
 */
 export const loadMaterials = () => {
-    fetch('ajax/products/getInitData.php?action=getMaterials')
+    const end_point = `ajax/materials/getList.php`;
+    fetch(end_point)
         .then(response => response.json())
         .then(data => {
             const container = document.getElementById('materialsContainer');
