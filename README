@@ -13,13 +13,15 @@ aplicando buenas prácticas y arquitectura modular sin frameworks externos.
 
 
 
-Arquitectura:
+Detalles:
 
     Backend: Controller → Middleware → Repository → Database. Estructura simple pero escalable, abstrayendo la lógica en capas sin sobrediseñar dada la naturaleza del proyecto.
 
     Frontend: Modular por entidad (warehouses, branches, currencies, materials, products) con JavaScript ES Modules, separando responsabilidades por funcionalidad.
 
     El sistema cuenta con validación de campos tanto en el front como en el back.
+
+    ** Si bien la solución no requeria desplegar los datos ingresados, añadí mas abajo una tabla para poder validar.
 
 
 ====================================================================================================
