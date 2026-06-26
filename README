@@ -1,30 +1,35 @@
-====================================================================================================
-SISTEMA DE REGISTRO DE PRODUCTOS
-Prueba de Diagnóstico - Francisco Rios
+# SISTEMA DE REGISTRO DE PRODUCTOS
+## Prueba de Diagnóstico - Francisco Rios
 Fecha: Junio 2026
-====================================================================================================
 
-1. TECNOLOGÍAS UTILIZADAS
-====================================================================================================
 
-    Frontend:
+
+Foobar is a Python library for dealing with word pluralization.
+
+## 1. TECNOLOGÍAS UTILIZADAS
+
+```bash
+     Frontend:
         # HTML5
         # CSS3
         # JavaScript
 
-    Backend:
+     Backend:
         # PHP 8.3.11
         # PostgreSQL 17.5
+```
 
-3. INSTALACIÓN DEL PROYECTO
-====================================================================================================
+## 2. INSTALACIÓN DEL PROYECTO
 
-    3.1. Clonar el repositorio desde GitHub
 
-        # git clone https://github.com/frios90/DIAGNOSTICOFRIOS# DESIS-PRODUCTS.git PruebaDiagnosticoFrios
+```python
+    2.1. Clonar el repositorio desde GitHub
+
+        # git clone https://github.com/frios90/DIAGNOSTICOFRIOS
+        # DESIS-PRODUCTS.git PruebaDiagnosticoFrios
         # cd PruebaDiagnosticoFrios
 
-    3.2. Crear usuario y base de datos en PostgreSQL
+    2.2. Crear usuario y base de datos en PostgreSQL
 
         # Conéctate como usuario administrador (postgres):
             sudo -u postgres psql
@@ -41,23 +46,23 @@ Fecha: Junio 2026
                 \c diagnostico;
 
             # Otorgar permisos sobre la base de datos, permisos sobre el esquema public, permisos para futuras tablas
-                # GRANT ALL PRIVILEGES ON DATABASE diagnostico TO diagnostico_usr;
-                # GRANT ALL PRIVILEGES ON SCHEMA public TO diagnostico_usr;
-                # GRANT CREATE ON SCHEMA public TO diagnostico_usr;
-                # ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO diagnostico_usr;
-                # ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO diagnostico_usr;
-                # ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON FUNCTIONS TO diagnostico_usr;
-                # \q
+                - GRANT ALL PRIVILEGES ON DATABASE diagnostico TO diagnostico_usr;
+                - GRANT ALL PRIVILEGES ON SCHEMA public TO diagnostico_usr;
+                - GRANT CREATE ON SCHEMA public TO diagnostico_usr;
+                - ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO diagnostico_usr;
+                - ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO diagnostico_usr;
+                - ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON FUNCTIONS TO diagnostico_usr;
+                - \q
 
-    3.3. Cargar estructura y datos
+    2.3. Cargar estructura y datos
 
         # Cargar esquema de tablas
-            # psql -h localhost -U diagnostico_usr -d diagnostico -f sql/01-schema.sql
+            - psql -h localhost -U diagnostico_usr -d diagnostico -f sql/01-schema.sql
 
         # Cargar datos de ejemplo
-            # psql -h localhost -U diagnostico_usr -d diagnostico -f sql/02-data.sql
+            - psql -h localhost -U diagnostico_usr -d diagnostico -f sql/02-data.sql
 
-    3.4. Configurar conexión
+    2.4. Configurar conexión
 
         # Editar el archivo config/dbConnection.php con tus credenciales:
 
@@ -69,35 +74,37 @@ Fecha: Junio 2026
             $db_username = 'diagnostico_usr';
             $db_password = '1234';
 
-    3.5 Levantar el proyecto (Entorno Local)
+    2.5 Levantar el proyecto (Entorno Local)
 
         # php -S localhost:8000
 
         # Acceder en el navegador
             http://localhost:8000
 
-    3.6 ALTERNATIVA DOCKER - Levantar el proyecto con Docker
+    2.6 ALTERNATIVA DOCKER - Levantar el proyecto con Docker
 
-        3.6.1. Levantar los contenedores
+        2.6.1. Levantar los contenedores
 
-            # docker compose up -d-
-            # acceder a: http://localhost:8888
+             docker compose up -d-
+             acceder a: http://localhost:8888
 
-        3.6.2. Cargar estructura y datos en la base de datos del contenedor
-            # docker exec -i prueba_productos_db psql -U diagnostico_usr -d diagnostico < sql/01-schema.sql
-            # docker exec -i prueba_productos_db psql -U diagnostico_usr -d diagnostico < sql/02-data.sql
+        2.6.2. Cargar estructura y datos en la base de datos del contenedor
+            - docker exec -i prueba_productos_db psql -U diagnostico_usr -d diagnostico < sql/01-schema.sql
+            - docker exec -i prueba_productos_db psql -U diagnostico_usr -d diagnostico < sql/02-data.sql
 
-        3.6.3. Estructura de puertos DOCKER
+        2.6.3. Estructura de puertos DOCKER
 
             | Servicio | P-Interno | P-Externo |
             |----------|-----------|-----------|
             | Web      | 8000      | 8888      |
             | Postgre  | 5432      | 5555      |
+```
 
-4. ESTRUCTURA DE ARCHIVOS
-====================================================================================================
+## 3. ESTRUCTURA DE ARCHIVOS
 
-    PruebaDiagnosticoFrios/
+
+```python
+  PruebaDiagnosticoFrios/
     ├── app/
     │   ├── config/
     │   │   └── DatabaseConnection.php
@@ -177,12 +184,13 @@ Fecha: Junio 2026
     ├── Dockerfile
     ├── docker-compose.yml
     └── LEEME.txt
+```
+
+## 5. ESTRUCTURA DE BASE DE DATOS
 
 
-5. ESTRUCTURA DE BASE DE DATOS
-====================================================================================================
-
-    Tablas principales (en inglés):
+```bash
+     # Tablas principales (en inglés):
     - warehouses       -> Bodegas
     - branches         -> Sucursales
     - currencies       -> Monedas
@@ -190,11 +198,10 @@ Fecha: Junio 2026
     - products         -> Productos
     - product_material -> Tabla pivote (relación muchos a muchos)
 
-    Relaciones:
+    # Relaciones:
     - branches.warehouse_id        -> warehouses.id
     - products.warehouse_id        -> warehouses.id
     - products.branch_id           -> branches.id
     - products.currency_id         -> currencies.id
     - product_material.product_id  -> products.id
     - product_material.material_id -> materials.id
-
