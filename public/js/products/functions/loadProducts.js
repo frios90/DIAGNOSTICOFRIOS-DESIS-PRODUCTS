@@ -8,7 +8,7 @@
 export const loadProducts = () => {
     const tbody = document.getElementById('tableBody');
     tbody.innerHTML = '<tr><td colspan="9">Cargando...</td></tr>';
-    const end_point = 'app/modules/products/controllers/getListController.php';
+    const end_point = 'app/modules/products/controllers/GetListController.php';
     fetch(end_point)
         .then(response => response.json())
         .then(data => {
