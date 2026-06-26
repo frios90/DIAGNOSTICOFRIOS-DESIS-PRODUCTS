@@ -1,207 +1,118 @@
-# SISTEMA DE REGISTRO DE PRODUCTOS
-## Prueba de Diagnóstico - Francisco Rios
-Fecha: Junio 2026
+# Welcome to Dillinger
 
+A clean, distraction-free markdown editor. Type on the left, see the rendered output on the right.
 
+---
 
-Foobar is a Python library for dealing with word pluralization.
+## Text Formatting
 
-## 1. TECNOLOGÍAS UTILIZADAS
+Markdown makes it easy to format text. You can write in **bold**, *italic*, or ~~strikethrough~~. Combine them for ***bold italic*** text. Use `inline code` for technical terms.
 
-```bash
-     Frontend:
-        # HTML5
-        # CSS3
-        # JavaScript
+## Lists
 
-     Backend:
-        # PHP 8.3.11
-        # PostgreSQL 17.5
+Unordered lists use dashes, asterisks, or plus signs:
+
+- Import files from GitHub, Dropbox, or Google Drive
+- Export to Markdown, HTML, or PDF
+- Drag and drop files directly into the editor
+
+Ordered lists are numbered automatically:
+
+1. Write your markdown
+2. Preview the rendered output
+3. Export or save to the cloud
+
+Nested lists work too:
+
+- Cloud integrations
+  - GitHub repositories
+  - Dropbox folders
+  - Google Drive files
+  - OneDrive and Bitbucket
+- Local features
+  - Auto-save to browser storage
+  - Image paste from clipboard
+
+## Task Lists
+
+- [x] Set up the editor
+- [x] Write some markdown
+- [ ] Connect a cloud service
+- [ ] Export the finished document
+
+## Links and Images
+
+Link to any page with [inline links](https://dillinger.io) or use [reference-style links][dillinger].
+
+Images use a similar syntax:
+
+![Placeholder](https://placehold.co/600x200/2B2F36/35D7BB?text=Your+Image+Here)
+
+[dillinger]: https://dillinger.io
+
+## Blockquotes
+
+> The art of writing is the art of discovering what you believe.
+>
+> — Gustave Flaubert
+
+Blockquotes can contain other markdown elements:
+
+> **Tip:** Use `Cmd+Shift+Z` to enter zen mode for distraction-free writing.
+
+## Code
+
+Fenced code blocks support syntax highlighting:
+
+```javascript
+function greet(name) {
+  return `Hello, ${name}.`;
+}
+
+console.log(greet("world"));
 ```
-
-## 2. INSTALACIÓN DEL PROYECTO
-
 
 ```python
-    2.1. Clonar el repositorio desde GitHub
-
-        # git clone https://github.com/frios90/DIAGNOSTICOFRIOS
-        # DESIS-PRODUCTS.git PruebaDiagnosticoFrios
-        # cd PruebaDiagnosticoFrios
-
-    2.2. Crear usuario y base de datos en PostgreSQL
-
-        # Conéctate como usuario administrador (postgres):
-            sudo -u postgres psql
-
-        # Dentro de psql, ejecuta:
-
-            # Crear usuario
-            CREATE USER diagnostico_usr WITH PASSWORD '1234';
-
-            # Crear base de datos
-                CREATE DATABASE diagnostico;
-
-            # Conectarse a la base de datos
-                \c diagnostico;
-
-            # Otorgar permisos sobre la base de datos, permisos sobre el esquema public, permisos para futuras tablas
-                - GRANT ALL PRIVILEGES ON DATABASE diagnostico TO diagnostico_usr;
-                - GRANT ALL PRIVILEGES ON SCHEMA public TO diagnostico_usr;
-                - GRANT CREATE ON SCHEMA public TO diagnostico_usr;
-                - ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO diagnostico_usr;
-                - ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO diagnostico_usr;
-                - ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON FUNCTIONS TO diagnostico_usr;
-                - \q
-
-    2.3. Cargar estructura y datos
-
-        # Cargar esquema de tablas
-            - psql -h localhost -U diagnostico_usr -d diagnostico -f sql/01-schema.sql
-
-        # Cargar datos de ejemplo
-            - psql -h localhost -U diagnostico_usr -d diagnostico -f sql/02-data.sql
-
-    2.4. Configurar conexión
-
-        # Editar el archivo config/dbConnection.php con tus credenciales:
-
-            $host = 'localhost';    # Para entorno local
-            # $host = 'db';         # Para Docker (descomentar)
-
-            $port = '5432';
-            $database_name = 'diagnostico';
-            $db_username = 'diagnostico_usr';
-            $db_password = '1234';
-
-    2.5 Levantar el proyecto (Entorno Local)
-
-        # php -S localhost:8000
-
-        # Acceder en el navegador
-            http://localhost:8000
-
-    2.6 ALTERNATIVA DOCKER - Levantar el proyecto con Docker
-
-        2.6.1. Levantar los contenedores
-
-             docker compose up -d-
-             acceder a: http://localhost:8888
-
-        2.6.2. Cargar estructura y datos en la base de datos del contenedor
-            - docker exec -i prueba_productos_db psql -U diagnostico_usr -d diagnostico < sql/01-schema.sql
-            - docker exec -i prueba_productos_db psql -U diagnostico_usr -d diagnostico < sql/02-data.sql
-
-        2.6.3. Estructura de puertos DOCKER
-
-            | Servicio | P-Interno | P-Externo |
-            |----------|-----------|-----------|
-            | Web      | 8000      | 8888      |
-            | Postgre  | 5432      | 5555      |
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
 ```
 
-## 3. ESTRUCTURA DE ARCHIVOS
+## Tables
 
+| Shortcut | Action |
+|----------|--------|
+| `⌘ ⇧ Z` | Toggle zen mode |
+| `Escape` | Exit zen mode |
+| `?` | Keyboard shortcuts |
 
-```python
-  PruebaDiagnosticoFrios/
-    ├── app/
-    │   ├── config/
-    │   │   └── DatabaseConnection.php
-    │   │
-    │   └── modules/
-    │       ├── branches/
-    │       │   ├── controllers/
-    │       │   │   └── getListController.php
-    │       │   └── repositories/
-    │       │       └── BranchRepository.php
-    │       │
-    │       ├── currencies/
-    │       │   ├── controllers/
-    │       │   │   └── getListController.php
-    │       │   └── repositories/
-    │       │       └── CurrencyRepository.php
-    │       │
-    │       ├── materials/
-    │       │   ├── controllers/
-    │       │   │   └── getListController.php
-    │       │   └── repositories/
-    │       │       └── MaterialRepository.php
-    │       │
-    │       ├── products/
-    │       │   ├── controllers/
-    │       │   │   ├── getListController.php
-    │       │   │   └── postProductController.php
-    │       │   ├── middlewares/
-    │       │   │   ├── validateFieldsAndMaterialsMiddleware.php
-    │       │   │   └── validateFieldsDatabaseMiddleware.php
-    │       │   └── repositories/
-    │       │       └── ProductRepository.php
-    │       │
-    │       └── warehouses/
-    │           ├── controllers/
-    │           │   └── getListController.php
-    │           └── repositories/
-    │               └── WarehouseRepository.php
-    │
-    ├── public/
-    │   ├── css/
-    │   │   ├── form.css
-    │   │   └── table.css
-    │   └── js/
-    │       ├── app.js
-    │       ├── branches/
-    │       │   ├── index.js
-    │       │   └── functions/
-    │       │       └── loadBranches.js
-    │       ├── currencies/
-    │       │   ├── index.js
-    │       │   └── functions/
-    │       │       └── loadCurrencies.js
-    │       ├── materials/
-    │       │   ├── index.js
-    │       │   └── functions/
-    │       │       └── loadMaterials.js
-    │       ├── products/
-    │       │   ├── index.js
-    │       │   └── functions/
-    │       │       ├── loadProducts.js
-    │       │       ├── saveProduct.js
-    │       │       ├── showMessage.js
-    │       │       └── validateForm.js
-    │       └── warehouses/
-    │           ├── index.js
-    │           └── functions/
-    │               └── loadWarehouses.js
-    │
-    ├── sql/
-    │   ├── 01-schema.sql
-    │   └── 02-data.sql
-    │
-    ├── .env
-    ├── .env.example
-    ├── .gitignore
-    ├── Dockerfile
-    ├── docker-compose.yml
-    └── LEEME.txt
-```
+Tables support alignment:
 
-## 5. ESTRUCTURA DE BASE DE DATOS
+| Feature | Status | Notes |
+|:--------|:------:|------:|
+| Markdown editing | Active | Monaco-powered |
+| Live preview | Active | Scroll-synced |
+| Cloud sync | Available | 5 providers |
+| PDF export | Available | Server-rendered |
 
+## Footnotes
 
-```bash
-     # Tablas principales (en inglés):
-    - warehouses       -> Bodegas
-    - branches         -> Sucursales
-    - currencies       -> Monedas
-    - materials        -> Materiales
-    - products         -> Productos
-    - product_material -> Tabla pivote (relación muchos a muchos)
+Dillinger supports extended markdown syntax including footnotes[^1] and definition lists.
 
-    # Relaciones:
-    - branches.warehouse_id        -> warehouses.id
-    - products.warehouse_id        -> warehouses.id
-    - products.branch_id           -> branches.id
-    - products.currency_id         -> currencies.id
-    - product_material.product_id  -> products.id
-    - product_material.material_id -> materials.id
+[^1]: Footnotes appear at the bottom of the rendered preview.
+
+## Math
+
+Inline math: $E = mc^2$
+
+Block equations:
+
+$$
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+$$
+
+---
+
+*Your documents save automatically. Start writing.*
