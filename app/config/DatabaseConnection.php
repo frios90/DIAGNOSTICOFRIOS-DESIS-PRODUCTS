@@ -13,10 +13,7 @@ class DatabaseConnection
 
     private function __construct() {
         try {
-            $this->pdo = new PDO("pgsql:host={$this->host};port={$this->port};dbname={$this->database_name};",
-                $this->db_username,
-                $this->db_password
-            );
+            $this->pdo = new PDO("pgsql:host={$this->host};port={$this->port};dbname={$this->database_name};", $this->db_username, $this->db_password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         } catch(PDOException $error) {
